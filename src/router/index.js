@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 import ListPage from '../views/ListPage.vue'
-import StudyPage from '../views/StudyPage.vue'
 
 const routes = [
   {
@@ -15,11 +14,6 @@ const routes = [
     component: ListPage
     // component: () => import('../views/ListPage.vue')
   },
-  {
-    path: '/study',
-    name: 'studypage',
-    component: StudyPage
-  }
 ]
 
 const router = createRouter({

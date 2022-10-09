@@ -6,13 +6,11 @@
 
 <script>
   import NavBar from "./components/NavBar.vue";
-  import TodoList from "./components/TodoList.vue"
 
   export default {
     name: "App",
     components: {
-      NavBar,
-      TodoList
+      NavBar
     },
   };
 </script>
