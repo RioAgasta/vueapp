@@ -21,9 +21,6 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/list">List Product</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/study">Todo List</router-link>
-          </li>
         </ul>
       </div>
     </div>
