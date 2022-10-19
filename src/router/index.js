@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 import ListPage from '../views/ListPage.vue'
+import InputPage from '../views/InputPage.vue'
+import EditPage from '../views/EditPage.vue'
 
 const routes = [
   {
@@ -14,6 +16,16 @@ const routes = [
     component: ListPage
     // component: () => import('../views/ListPage.vue')
   },
+  {
+    path: '/add',
+    name: 'inputpage',
+    component: InputPage
+  },
+  {
+    path: '/edit/:id',
+    name: 'editpage',
+    component: EditPage
+  }
 ]
 
 const router = createRouter({
