@@ -12,13 +12,14 @@
           <div class="row">
             <div class="col-md-4" v-for="product in products" :key="product.id">
               <div class="card mt-4 p-4">
-                <center>
+                <div class="row">
                   <img
                     :src="`http://localhost:8000/storage/${product.image}`"
                     width="200"
                     height="200"
+                    style="object-fit: contain;"
                   />
-                </center>
+                </div>
                 <div class="card-body" align="right">
                   <h5 class="card-title">{{ product.title }}</h5>
                   <p class="card-text">Harga Rp. {{ product.price }}</p>
