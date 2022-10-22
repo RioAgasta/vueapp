@@ -80,7 +80,7 @@ export default {
       this.image = e.target.files[0];
       console.log(this.image);
 
-      this.products.image = image;
+      this.products.image = this.image;
 
       let fileReader = new FileReader();
       fileReader.readAsDataURL(this.image);
