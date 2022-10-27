@@ -29,7 +29,6 @@
               <div class="form-group">
                 <label class="form-label mt-4">Gambar Pesanan </label>
                 <input class="form-control" type="file" @change="imgupload" />
-                <input class="form-control" type="text" v-model="image" />
               </div>
               <div class="form-group mt-4">
                 <img :src="preview" alt="" width="200" />
@@ -52,7 +51,7 @@
 <script>
 import axios from 'axios';
 export default {
-  name: "homepage",
+  name: "inputpage",
   data() {
     return {
       products: {},
@@ -98,7 +97,7 @@ export default {
           }
         })
         .catch((error) => {
-          console.log("penyimpanan gagal");
+          console.log(error.response);
         });
     },
   },
