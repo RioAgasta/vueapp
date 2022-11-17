@@ -10,7 +10,7 @@
         <div class="row mt-2">
           <div class="col p-4">
             <form @submit.prevent="saveproduct">
-              <div class="form-group row">
+              <div class="form-group">
                 <label class="col-sm-2 col-form-label"> Nama Pesanan </label>
                 <input
                   type="text"
@@ -18,13 +18,22 @@
                   v-model="products.title"
                 />
               </div>
-              <div class="form-group row">
+              <div class="form-group">
                 <label class="col-sm-2 col-form-label"> Harga Pesanan </label>
                 <input
                   type="text"
                   class="form-control"
                   v-model="products.price"
                 />
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 col-form-label"> Kategori Pesanan </label>
+                <select class="form-control" v-model="products.category">
+                  <option>Appetizer</option>
+                  <option>Main Course</option>
+                  <option>Dessert</option>
+                  <option>Beverage</option>
+                </select>
               </div>
               <div class="form-group">
                 <label class="form-label mt-4">Gambar Pesanan </label>
@@ -66,6 +75,7 @@ export default {
 
       console.log(this.products.title);
       console.log(this.products.price);
+      console.log(this.products.category);
 
       let fileReader = new FileReader();
       fileReader.readAsDataURL(this.image);
@@ -78,6 +88,7 @@ export default {
       let formData = new FormData();
       formData.append("title", this.products.title);
       formData.append("price", this.products.price);
+      formData.append("category", this.products.category);
       formData.append("image", this.image);
 
       console.log(formData);
@@ -90,6 +101,7 @@ export default {
             alert(response.data.message);
             this.products.title = "";
             this.products.price = "";
+            this.products.category = "";
             this.image = "";
             this.preview = "";
 
