@@ -26,7 +26,16 @@
                   v-model="products.price"
                 />
               </div>
-              <div class="form-group">
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label"> Kategori Pesanan </label>
+                <select class="form-control" v-model="products.category">
+                  <option value="1">Appetizer</option>
+                  <option value="2">Main Course</option>
+                  <option value="3">Dessert</option>
+                  <option value="4">Beverage</option>
+                </select>
+              </div>
+              <div class="form-group row">
                 <label class="form-label mt-4">Gambar Pesanan </label>
                 <input class="form-control" type="file" @change="imgupload" />
               </div>
@@ -66,6 +75,7 @@ export default {
 
       console.log(this.products.title);
       console.log(this.products.price);
+      console.log(this.products.category);
 
       let fileReader = new FileReader();
       fileReader.readAsDataURL(this.image);
@@ -78,6 +88,7 @@ export default {
       let formData = new FormData();
       formData.append("title", this.products.title);
       formData.append("price", this.products.price);
+      formData.append("category_id", this.products.category);
       formData.append("image", this.image);
 
       console.log(formData);
@@ -90,6 +101,7 @@ export default {
             alert(response.data.message);
             this.products.title = "";
             this.products.price = "";
+            this.products.category = "";
             this.image = "";
             this.preview = "";
 

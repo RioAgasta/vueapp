@@ -21,6 +21,9 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/list">List Product</router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/category">Tambah Kategori</router-link>
+          </li>
         </ul>
       </div>
     </div>

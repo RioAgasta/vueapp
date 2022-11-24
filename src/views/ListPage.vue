@@ -9,6 +9,7 @@
             class="btn btn-primary"
             ><font-awesome-icon icon="fa-solid fa-plus" />
           </router-link>
+          <button type="button" class="btn btn-primary" @click.prevent="getProductById">Filter</button>
           <div class="row">
             <div class="col-md-4" v-for="product in products" :key="product.id">
               <div class="card mt-4 p-4">
@@ -22,10 +23,11 @@
                 </div>
                 <div class="card-body" align="right">
                   <h5 class="card-title">{{ product.title }}</h5>
-                  <p class="card-text">Harga Rp. {{ product.price }}</p>
+                  <p class="card-text">Rp. {{ product.price }}</p>
 
-                  <router-link
-                    class="btn btn-primary btn-sm rounded shadow mr-3"
+                  <div class="row">
+                    <router-link
+                    class="btn btn-primary rounded shadow mb-3"
                     :to="{ name: 'editpage', params: { id: product.id } }"
                     >Edit
                   </router-link>
@@ -36,6 +38,8 @@
                   >
                     Delete
                   </button>
+                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -59,7 +63,7 @@ export default {
     this.getProduct();
   },
   mounted() {
-    console.log("Product List Creater");
+    console.log("Product List Created");
   },
   methods: {
     async getProduct() {
@@ -73,6 +77,18 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    async getProductById(){
+      let url = `http://127.0.0.1:8000/api/category/${this.$route.params.id}`;
+      await axios
+        .get(url)
+        .then((response) => {
+          console.log(response);
+          this.products = response.data.data[0].api_model;
+        })
+        .catch((error) => {
+          console.log(error);
+        })
     },
     async delProduct(id) {
       let url = `http://127.0.0.1:8000/api/crud/${id}`;
