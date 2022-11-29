@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
 import ListPage from '../views/ListPage.vue'
+import FilteredPage from '../views/FilterPage.vue'
 import InputPage from '../views/InputPage.vue'
 import EditPage from '../views/EditPage.vue'
+import EditCategory from '../views/EditCategory.vue'
 import InputCategoryPage from '../views/InputCategory.vue'
 
 const routes = [
@@ -18,9 +20,9 @@ const routes = [
     // component: () => import('../views/ListPage.vue')
   },
   {
-    path: '/list/:id',
+    path: '/filterlist/:id',
     name: 'filteredlist',
-    component: ListPage
+    component: FilteredPage
     // component: () => import('../views/ListPage.vue')
   },
   {
@@ -32,6 +34,11 @@ const routes = [
     path: '/edit/:id',
     name: 'editpage',
     component: EditPage
+  },
+  {
+    path: '/editcategory/:id',
+    name: 'editcategory',
+    component: EditCategory
   },
   {
     path: '/category',

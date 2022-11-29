@@ -9,7 +9,6 @@
             class="btn btn-primary"
             ><font-awesome-icon icon="fa-solid fa-plus" />
           </router-link>
-          <button type="button" class="btn btn-primary" @click.prevent="getProductById">Filter</button>
           <div class="row">
             <div class="col-md-4" v-for="product in products" :key="product.id">
               <div class="card mt-4 p-4">
