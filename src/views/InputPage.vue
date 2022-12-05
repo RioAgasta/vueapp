@@ -29,10 +29,7 @@
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label"> Kategori Pesanan </label>
                 <select class="form-control" v-model="products.category">
-                  <option value="1">Appetizer</option>
-                  <option value="2">Main Course</option>
-                  <option value="3">Dessert</option>
-                  <option value="4">Beverage</option>
+                  <option v-for="(category) in categories" :value="category.id">{{ category.category_name }}</option>
                 </select>
               </div>
               <div class="form-group row">
@@ -63,10 +60,14 @@ export default {
   name: "inputpage",
   data() {
     return {
+      categories: Array,
       products: {},
       image: "",
       preview: "",
     };
+  },
+  created(){
+    this.getKategori();
   },
   methods: {
     imgupload(e) {
@@ -83,6 +84,14 @@ export default {
         this.preview = e.target.result;
         console.log(this.preview);
       };
+    },
+    async getKategori(){
+      let url = `http://127.0.0.1:8000/api/category`;
+      await axios.get(url).then((response) => {
+        this.categories = response.data.data;
+      }).catch((error) => {
+        console.log(error);
+      });
     },
     async saveproduct() {
       let formData = new FormData();

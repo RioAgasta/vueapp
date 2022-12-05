@@ -59,18 +59,6 @@
       console.log("Product List Created");
     },
     methods: {
-      async getProduct() {
-        let url = "http://127.0.0.1:8000/api/crud";
-        await axios
-          .get(url)
-          .then((response) => {
-            this.products = response.data.data;
-            console.log(this.products);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      },
       async getProductById(){
         let url = `http://127.0.0.1:8000/api/category/${this.$route.params.id}`;
         await axios
@@ -84,7 +72,7 @@
           })
       },
       async delProduct(id) {
-        let url = `http://127.0.0.1:8000/api/crud/${id}`;
+        let url = `http://127.0.0.1:8000/api/category/${id}`;
         await axios
           .delete(url)
           .then((response) => {
